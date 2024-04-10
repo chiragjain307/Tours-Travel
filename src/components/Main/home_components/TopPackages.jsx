@@ -1,32 +1,17 @@
 import React from 'react'
 import { HiLocationMarker } from 'react-icons/hi'
+import Top_Packages_List from '../../../all_lists/Top_Packages'
 import mountain from '../../../assets/mountain.jpg'
 
-function TopPackages() {
-  const Card = ({ image, text, location }) => {
-    return (
-      <div >
-        <div className='overflow-hidden relative my-0 mx-auto rounded-2xl'>
-          <img src={image} alt='' className='rounded-2xl w-[300px] h-[300px] box-border hoverImg' />
-          <p className=' bg-white rounded-lg p-1 text-sm absolute top-4 right-4'>20% off</p>
-        </div>
-        <div>
-          <h5 className='text-xl pt-2 font-semibold'>{text}</h5>
-          <div className='flex items-center gap-2 py-3'>
-            <HiLocationMarker size={20} className='text-primary' />
-            <p className='text-gray text-light'>{location}</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
+function Toppkgs() {
+
   return (
     <div className='container mx-auto px-3'>
       <section className='pt-16'>
         <div>
           <div className='lg:flex justify-between text-center'>
             <span>
-              <h2 className='text-4xl'>Top Packages</h2>
+              <h2 className='text-4xl'>Top pkgs</h2>
               <p className='py-4'>Let&apos;s enjoy this heaven on earth</p>
             </span>
             <p className="text-light lg:w-2/5">
@@ -34,10 +19,25 @@ function TopPackages() {
             </p>
           </div>
           <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 my-12 relative z-10">
-            <Card image={mountain} location='Mils, Tirol, Austria' text='Mils, Tirol' />
-            <Card image={mountain} location='Mils, Tirol, Austria' text='Mils, Tirol' />
-            <Card image={mountain} location='Mils, Tirol, Austria' text='Mils, Tirol' />
-            <Card image={mountain} location='Mils, Tirol, Austria' text='Mils, Tirol' />
+            
+            {Top_Packages_List.map((pkg) => {
+              return (
+                <div key={pkg.id} >
+                  <div className='overflow-hidden relative my-0 mx-auto rounded-2xl'>
+                    <img src={pkg.image} alt='img' className='rounded-2xl w-[300px] h-[300px] box-border hoverImg' />
+                    <p className=' bg-white rounded-lg p-1 text-sm absolute top-4 right-4'>20% off</p>
+                  </div>
+                  <div>
+                    <h5 className='text-xl pt-2 font-semibold'>{pkg.title}</h5>
+                    <div className='flex items-center gap-2 py-3'>
+                      <HiLocationMarker size={20} className='text-primary' />
+                      <p className='text-gray text-light'>{pkg.location}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+
           </div>
         </div>
       </section>
@@ -77,7 +77,7 @@ function TopPackages() {
             <button className="bg-primary text-white px-6 py-3 transition-bg hover:bg-white hover:text-primary rounded-xl shadow my-8">Start your Explore</button>
           </div>
           <div className="lg:w-1/2 h-full overflow-hidden rounded-2xl">
-            <img src={mountain} alt="" className="rounded-2xl w-full h-full hoverImg"/>
+            <img src={mountain} alt="" className="rounded-2xl w-full h-full hoverImg" />
           </div>
         </div>
 
@@ -86,4 +86,4 @@ function TopPackages() {
   )
 }
 
-export default TopPackages
+export default Toppkgs

@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import Navbar from './components/Header/Navbar'
-import { BrowserRouter, Outlet } from 'react-router-dom'
+import {Outlet } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
         </main>
         
         <footer>
-          <Footer/>
+          {/* <Footer/> */}
         </footer>
       </div>
 
